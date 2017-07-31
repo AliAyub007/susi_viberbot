@@ -1,23 +1,26 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
-metadata:
+metadata: 
+  annotations: 
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
   name: susi-viberbot
   namespace: viberbot
-  annotations:
-    kubernetes.io/tls-acme: "true"
-    kubernetes.io/ingress.class: "nginx"
-spec:
+spec: 
+  loadBalancerIP: "35.188.144.150"
+  rules: 
+    - 
+      host: susi-viberbbot.tk
+      http: 
+        paths: 
+          - 
+            backend: 
+              serviceName: susi-viberbot
+              servicePort: 5000
+            path: /
+  tls: 
+    - 
+      hosts: 
+        - susi-viberbbot.tk
+      secretName: viberbot-susi-tls
   type: LoadBalancer
-  loadBalancerIP: '35.188.144.150'
-  tls:
-  - hosts:
-    - susi-viberbbot.tk
-    secretName: viberbot-susi-tls
-  rules:
-  - host: susi-viberbbot.tk
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: susi-viberbot
-          servicePort: 5000
