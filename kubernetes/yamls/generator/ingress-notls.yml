@@ -6,6 +6,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
+  type: LoadBalancer
+  loadBalancerIP: '35.188.144.150'
   rules:
   - host: susi-viberbbot.tk
     http:
