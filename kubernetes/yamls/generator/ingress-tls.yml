@@ -19,3 +19,4 @@ spec:
         backend:
           serviceName: susi-viberbot
           servicePort: 5000
+          
