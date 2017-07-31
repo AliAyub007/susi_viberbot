@@ -4,11 +4,10 @@ metadata:
   name: susi-viberbot
   namespace: viberbot
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 35.188.144.150
   ports:
   - port: 5000
     protocol: TCP
     targetPort: 5000
   selector:
     app: susi-viberbot
+  type: LoadBalancer
