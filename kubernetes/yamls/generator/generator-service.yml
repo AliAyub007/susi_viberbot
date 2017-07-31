@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: susi-viberbot
+  namespace: viberbot
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: susi-viberbot
