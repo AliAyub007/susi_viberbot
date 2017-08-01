@@ -42,7 +42,7 @@ app.get('/', function(req, response) {
         url: 'https://chatapi.viber.com/pa/set_webhook',
         headers: headerBody,
         body: {
-            url: process.env.herokuURL,
+            url: 'http://35.193.110.164:8080/',
             event_types: ['delivered', 'seen', 'failed', 'subscribed', 'unsubscribed', 'conversation_started']
         },
         json: true
