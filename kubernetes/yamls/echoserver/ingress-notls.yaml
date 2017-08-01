@@ -4,13 +4,8 @@ metadata:
   name: viber
   namespace: viber
   annotations:
-    # kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.class: "nginx"
 spec:
-  # tls:
-  # - hosts:
-  #   - echo.example.com
-  #   secretName: echoserver-tls
   rules:
   - host: susi-viberbbot.tk
     http:
