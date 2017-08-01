@@ -13,7 +13,7 @@ var buttons = [];
 var text = [];
 var link = [];
 var value;
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8080));
 
 //to ping heorku app after 20 minutes to keep it active
 setInterval(function() {
