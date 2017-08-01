@@ -7,7 +7,7 @@ var headerBody = {
     'cache-control': 'no-cache',
     'content-type': 'application/json',
     // recommended to inject access tokens as environmental variables, e.g.
-    'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN
+    'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN || config.X_VIBER_AUTH_TOKEN
 };
 var buttons = [];
 var text = [];
