@@ -5,9 +5,9 @@ metadata:
   namespace: viberbot
 spec:
   ports:
-  - port: 5000
+  - port: 8080
     protocol: TCP
-    targetPort: 5000
+    targetPort: 8080
   selector:
     app: susi-viberbot
   type: LoadBalancer
