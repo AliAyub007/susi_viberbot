@@ -14,7 +14,7 @@ spec:
       - name: susi-viberbot
         image: aliayubkhan/susi_viberbot:latest
         env:
-        - name: process.env.X_VIBER_AUTH_TOKEN
+        - name: X_VIBER_AUTH_TOKEN
           value: "45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158"
         ports:
         - containerPort: 5000
