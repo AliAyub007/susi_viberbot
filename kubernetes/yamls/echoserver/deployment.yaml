@@ -11,8 +11,15 @@ spec:
         app: viber
     spec:
       containers:
-      - image: gcr.io/google_containers/echoserver:1.0
-        imagePullPolicy: Always
-        name: viber
+      - name: viber
+        image: aliayubkhan/susi_viberbot:latest
+        env:
+        - name: X_VIBER_AUTH_TOKEN
+          value: "45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158"
         ports:
         - containerPort: 8080
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: viber
+      restartPolicy: Always
