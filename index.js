@@ -42,7 +42,7 @@ app.get('/', function(req, response) {
         url: 'https://chatapi.viber.com/pa/set_webhook',
         headers: headerBody,
         body: {
-            url: 'http://35.193.110.164:8080/',
+            url: 'https://susi-viberbbot.tk/',
             event_types: ['delivered', 'seen', 'failed', 'subscribed', 'unsubscribed', 'conversation_started']
         },
         json: true
