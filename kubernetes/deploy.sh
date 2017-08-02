@@ -12,7 +12,7 @@ elif [ "$1" = "create" ]; then
     echo "Deploying the project to kubernetes cluster"
     if [ "$2" = "all" ]; then
       # echoserver
-      kubectl apply -f ${DIR}/yamlsechoserver/00-namespace.yaml
+      kubectl apply -f ${DIR}/yamls/echoserver/00-namespace.yaml
       # kube-lego
       kubectl apply -f ${DIR}/yamls/lego/00-namespace.yaml
       # nginx-ingress
@@ -33,7 +33,7 @@ elif [ "$1" = "create" ]; then
       kubectl apply -f ${DIR}/yamls/lego/deployment.yaml
 
       kubectl apply -f ${DIR}/yamls/echoserver/ingress-tls.yaml
-      
+
     fi
     echo "Waiting for server to start up. ~30s."
     sleep 30
