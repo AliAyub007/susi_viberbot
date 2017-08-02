@@ -6,7 +6,7 @@ ARG REPOSITORY
 
 ENV COMMIT_HASH ${COMMIT_HASH:-null}
 ENV BRANCH ${BRANCH:-master}
-ENV REPOSITORY ${REPOSITORY:-https://github.com/AliAyub007/susi_viberbot.git}
+ENV REPOSITORY ${REPOSITORY:-https://github.com/fossasia/susi_viberbot.git}
 ENV INSTALL_PATH /viber
 
 RUN mkdir -p $INSTALL_PATH

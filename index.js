@@ -15,11 +15,6 @@ var link = [];
 var value;
 app.set('port', (process.env.PORT || 8080));
 
-//to ping heorku app after 20 minutes to keep it active
-setInterval(function() {
-    http.get(process.env.herokuURL);
-}, 1200000);
-
 //app.use(express.static(__dirname + '/public'));
 
 /** bodyParser.urlencoded(options)

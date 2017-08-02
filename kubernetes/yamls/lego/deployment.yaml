@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: lego
-  namespace: lego
+  name: kube-lego
+  namespace: kube-lego
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: lego
+        app: kube-lego
     spec:
       containers:
-      - name: lego
+      - name: kube-lego
         image: jetstack/kube-lego:0.1.5
         imagePullPolicy: Always
         ports:
@@ -20,12 +20,12 @@ spec:
         - name: LEGO_EMAIL
           valueFrom:
             configMapKeyRef:
-              name: lego
+              name: kube-lego
               key: lego.email
         - name: LEGO_URL
           valueFrom:
             configMapKeyRef:
-              name: lego
+              name: kube-lego
               key: lego.url
         - name: LEGO_NAMESPACE
           valueFrom:
