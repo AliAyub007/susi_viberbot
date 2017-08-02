@@ -5,7 +5,7 @@ metadata:
   namespace: ngi
 spec:
   type: LoadBalancer
-  loadBalancerIP: '35.188.34.77'
+  loadBalancerIP: '35.192.103.31'
   ports:
   - port: 80
     name: http
