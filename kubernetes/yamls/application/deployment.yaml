@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: viber
-        image: aliayubkhan/susi_viberbot:latest-master
+        image: aliayubkhan/susi_viberbot:latest
         env:
         - name: X_VIBER_AUTH_TOKEN
           value: "45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158"
