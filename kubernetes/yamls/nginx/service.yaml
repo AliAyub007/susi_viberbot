@@ -4,7 +4,6 @@ metadata:
   name: ng
   namespace: ngi
 spec:
-  sessionAffinity: ClientIP
   type: LoadBalancer
   loadBalancerIP: '35.188.34.77'
   ports:
