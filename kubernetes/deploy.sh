@@ -22,7 +22,7 @@ elif [ "$1" = "create" ]; then
       kubectl apply -f ${DIR}/yamls/nginx/deployment.yaml
 
       echo "Waiting for nginx to set up. ~20s."
-      sleep 20
+      sleep 30
 
       kubectl describe svc nginx --namespace nginx-ingress
       kubectl apply -f ${DIR}/yamls/application/service.yaml
