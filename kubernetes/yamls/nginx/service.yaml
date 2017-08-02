@@ -3,6 +3,10 @@ kind: Service
 metadata:
   name: ng
   namespace: ngi
+  annotations:
+    service.beta.kubernetes.io/external-traffic: OnlyLocal
+  labels:
+    app: ng
 spec:
   type: LoadBalancer
   loadBalancerIP: '35.188.34.77'
@@ -12,4 +16,4 @@ spec:
   - port: 443
     name: https
   selector:
-    app: ng
+    k8s-app: nginx-ingress-controller
