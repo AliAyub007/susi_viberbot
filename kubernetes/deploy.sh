@@ -11,12 +11,30 @@ if [ "$1" = "delete" ]; then
 elif [ "$1" = "create" ]; then
     echo "Deploying the project to kubernetes cluster"
     if [ "$2" = "all" ]; then
-        # Start KubeLego deployment
-        kubectl create -R -f ${DIR}/yamls/lego
-        # Start nginx deployment, ingress & service
-        kubectl create -R -f ${DIR}/yamls/nginx
+      # echoserver
+      kubectl apply -f ${DIR}/yamlsechoserver/00-namespace.yaml
+      # kube-lego
+      kubectl apply -f ${DIR}/yamls/lego/00-namespace.yaml
+      # nginx-ingress
+      kubectl apply -f ${DIR}/yamls/nginx/00-namespace.yaml
+
+      kubectl apply -f ${DIR}/yamls/nginx/default-deployment.yaml
+      kubectl apply -f ${DIR}/yamls/nginx/default-service.yaml
+
+      kubectl apply -f ${DIR}/yamls/nginx/configmap.yaml
+      kubectl apply -f ${DIR}/yamls/nginx/service.yaml
+      kubectl apply -f ${DIR}/yamls/nginx/deployment.yaml
+
+      kubectl apply -f ${DIR}/yamls/echoserver/service.yaml
+      kubectl apply -f ${DIR}/yamls/echoserver/deployment.yaml
+      kubectl apply -f ${DIR}/yamls/echoserver/ingress-notls.yaml
+
+      kubectl apply -f ${DIR}/yamls/lego/configmap.yaml
+      kubectl apply -f ${DIR}/yamls/lego/deployment.yaml
+
+      kubectl apply -f ${DIR}/yamls/echoserver/ingress-tls.yaml
+      
     fi
-    kubectl create -R -f ${DIR}/yamls/echoserver
     echo "Waiting for server to start up. ~30s."
     sleep 30
     echo "Done. The project was deployed to kubernetes. :)"
