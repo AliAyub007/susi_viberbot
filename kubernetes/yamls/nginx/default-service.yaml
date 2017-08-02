@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: default-http-backend
-  namespace: nginx-ingress
+  namespace: ngi
 spec:
   ports:
   - port: 80

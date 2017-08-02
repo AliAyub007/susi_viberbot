@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx
-  namespace: nginx-ingress
+  name: ng
+  namespace: ngi
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: nginx
+        app: ng
     spec:
       containers:
       - image: gcr.io/google_containers/nginx-ingress-controller:0.8.3
-        name: nginx
+        name: ng
         imagePullPolicy: Always
         env:
           - name: POD_NAME

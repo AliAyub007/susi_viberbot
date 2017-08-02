@@ -5,6 +5,7 @@ if [ "$1" = "delete" ]; then
     if [ "$2" = "all" ]; then
         kubectl delete -f ${DIR}/yamls/lego/00-namespace.yml
         kubectl delete -f ${DIR}/yamls/nginx/00-namespace.yml
+        kubectl delete -f ${DIR}/yamls/echoserver/00-namespace.yml
     fi
     echo "Done. The project was removed from the cluster."
 elif [ "$1" = "create" ]; then
@@ -15,7 +16,7 @@ elif [ "$1" = "create" ]; then
         # Start nginx deployment, ingress & service
         kubectl create -R -f ${DIR}/yamls/nginx
     fi
-    kubectl create -R -f ${DIR}/yamls/application
+    kubectl create -R -f ${DIR}/yamls/echoserver
     echo "Waiting for server to start up. ~30s."
     sleep 30
     echo "Done. The project was deployed to kubernetes. :)"
