@@ -3,9 +3,9 @@ export DIR=${BASH_SOURCE%/*}
 if [ "$1" = "delete" ]; then
     echo "Clearing the cluster."
     if [ "$2" = "all" ]; then
-        kubectl delete -f ${DIR}/yamls/lego/00-namespace.yml
-        kubectl delete -f ${DIR}/yamls/nginx/00-namespace.yml
-        kubectl delete -f ${DIR}/yamls/echoserver/00-namespace.yml
+        kubectl delete -f ${DIR}/yamls/lego/00-namespace.yaml
+        kubectl delete -f ${DIR}/yamls/nginx/00-namespace.yaml
+        kubectl delete -f ${DIR}/yamls/echoserver/00-namespace.yaml
     fi
     echo "Done. The project was removed from the cluster."
 elif [ "$1" = "create" ]; then
