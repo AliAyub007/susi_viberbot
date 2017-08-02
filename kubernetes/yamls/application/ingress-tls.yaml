@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - susi-viberbbot.tk
-    secretName: susi-viber-tls
+    - susi-viberbot.tk
+    secretName: susi-viberbot-tls
   rules:
-  - host: susi-viberbbot.tk
+  - host: susi-viberbot.tk
     http:
       paths:
       - path: /
