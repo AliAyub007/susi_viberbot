@@ -16,7 +16,7 @@ var value;
 app.set('port', (process.env.PORT || 8080));
 
 //app.use(express.static(__dirname + '/public'));
-
+//s
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
  * and exposes the resulting object (containing the keys and values) on req.body
