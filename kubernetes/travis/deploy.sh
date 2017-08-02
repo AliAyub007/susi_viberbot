@@ -16,7 +16,7 @@ gcloud components install kubectl
 
 echo ">>> Decrypting credentials and authenticating gcloud account"
 gcloud config set compute/zone us-central1-b
-openssl aes-256-cbc -K $encrypted_e37515051e9a_key -iv $encrypted_e37515051e9a_iv -in ./kubernetes/travis/susi-telegrambot-e467bca1e540.json.enc -out susi-telegrambot-e467bca1e540.json -d
+openssl aes-256-cbc -K $encrypted_e2ad32691588_key -iv $encrypted_e2ad32691588_iv -in ./kubernetes/travis/susi-telegrambot-e467bca1e540.json.enc -out susi-telegrambot-e467bca1e540.json -d
 mkdir -p lib
 gcloud auth activate-service-account --key-file susi-telegrambot-e467bca1e540.json
 export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/susi-telegrambot-e467bca1e540.json
@@ -26,9 +26,9 @@ echo ">>> Building Docker image"
 cd kubernetes/images/generator
 docker build --build-arg COMMIT_HASH=$TRAVIS_COMMIT --build-arg BRANCH=$DEPLOY_BRANCH --build-arg REPOSITORY=$REPOSITORY --no-cache -t aliayubkhan/susi_viberbot:$TRAVIS_COMMIT .
 docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-docker tag fossasia/susi_viberbot:$TRAVIS_COMMIT fossasia/susi_viberbot:latest-$DEPLOY_BRANCH
+docker tag aliayubkhan/susi_viberbot:$TRAVIS_COMMIT aliayubkhan/susi_viberbot:latest
 echo ">>> Pushing docker image"
-docker push fossasia/susi_viberbot
+docker push aliayubkhan/susi_viberbot
 echo ">>> Updating deployment"
-kubectl set image deployment/viber --namespace=viber viber=fossasia/susi_viberbot:$TRAVIS_COMMIT
+kubectl set image deployment/viber --namespace=viber viber=aliayubkhan/susi_viberbot:$TRAVIS_COMMIT
 rm -rf $GOOGLE_APPLICATION_CREDENTIALS
