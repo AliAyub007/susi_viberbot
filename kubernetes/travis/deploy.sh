@@ -24,11 +24,11 @@ gcloud config set project susi-telegrambot
 gcloud container clusters get-credentials bots
 echo ">>> Building Docker image"
 cd kubernetes/images/generator
-docker build --build-arg COMMIT_HASH=$TRAVIS_COMMIT --build-arg BRANCH=$DEPLOY_BRANCH --build-arg REPOSITORY=$REPOSITORY --no-cache -t aliayubkhan/susi_viberbot:$TRAVIS_COMMIT .
+docker build --build-arg COMMIT_HASH=$TRAVIS_COMMIT --build-arg BRANCH=$DEPLOY_BRANCH --build-arg REPOSITORY=$REPOSITORY --no-cache -t fossasia/susi_viberbot:$TRAVIS_COMMIT .
 docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-docker tag aliayubkhan/susi_viberbot:$TRAVIS_COMMIT aliayubkhan/susi_viberbot:latest
+docker tag fossasia/susi_viberbot:$TRAVIS_COMMIT fossasia/susi_viberbot:latest
 echo ">>> Pushing docker image"
-docker push aliayubkhan/susi_viberbot
+docker push fossasia/susi_viberbot
 echo ">>> Updating deployment"
-kubectl set image deployment/viber --namespace=viber viber=aliayubkhan/susi_viberbot:$TRAVIS_COMMIT
+kubectl set image deployment/viber --namespace=viber viber=fossasia/susi_viberbot:$TRAVIS_COMMIT
 rm -rf $GOOGLE_APPLICATION_CREDENTIALS
